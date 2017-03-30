@@ -1,25 +1,25 @@
 package com.sdajava.mvc;
 
-import com.sdajava.mvc.controller.StudentController;
-import com.sdajava.mvc.model.Student;
-import com.sdajava.mvc.view.StudentView;
+import com.sdajava.mvc.controller.Controller;
+import com.sdajava.mvc.model.Model;
+import com.sdajava.mvc.view.View;
 
 
 public class Main {
 
-    public static Student getStudent(){
-        return new Student.Builder().name("imie").lastname("nazwisko").build();
-    }
 
     public static void main(String[] args) {
 
-        Student model = getStudent();
+        Model model = new Model();
 
-        StudentView studentView = new StudentView();
+        View view = new View();
 
-        StudentController studentController = new StudentController(model, studentView);
+        Controller controller = new Controller(model, view);
 
-        studentController.viewUpdate();
+        controller.prepareData();
+        controller.showData();
+
+
 
     }
 }
